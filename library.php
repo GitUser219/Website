@@ -63,4 +63,11 @@ function SendMessage($user_id, $contents) {
 	$statement -> execute();
 }
 
+function DeleteAllMessages() {
+
+	$database = new PDO("mysql:host=localhost;dbname=db", "root", "");
+	$statement = $database -> prepare("TRUNCATE TABLE messages");
+	$statement -> execute();
+}
+
 ?>

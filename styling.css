@@ -9,6 +9,7 @@ body {
 	border-radius: 10px;
 	padding: 0px 10px 10px 10px;
 	margin: 10px 0px 10px 0px;
+	word-wrap: break-word;
 }
 
 .input {
@@ -29,5 +30,13 @@ label {
 }
 
 .btn {
+	margin: 10px 0px 0px 0px;
+}
+
+p {
+	margin: 10px 0px 0px 0px;
+}
+
+.light.message {
 	margin: 10px 0px 0px 0px;
 }
