@@ -44,7 +44,7 @@ TBA
 
 ## Concepts
 
-* [Ajax](https://en.wikipedia.org/wiki/Ajax_(programming)) - A web development technique using many web technologies on the client side to create asynchronous web applications
+* [Ajax](https://en.wikipedia.org/wiki/Ajax_(programming)) - A web development technique using web technologies on the client side to create asynchronous web applications
 * [Data validation](https://en.wikipedia.org/wiki/Data_validation) - The process of ensuring data have undergone data cleansing to ensure they are both correct and useful
 * [Responsive web design](https://en.wikipedia.org/wiki/Responsive_web_design) - An approach to web design that makes web pages render well on a variety of devices and window or screen sizes
 
