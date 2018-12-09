@@ -64,6 +64,8 @@ Add additional notes about how to deploy this on a live system
 * [HTML5](https://en.wikipedia.org/wiki/HTML5) - A markup language used for structuring and presenting content on the World Wide Web
 * [MySQL](https://www.mysql.com/) - An open source relational database management system
 * [Apache HTTP Server](https://httpd.apache.org/) - An open-source HTTP server for modern operating systems including UNIX and Windows
+* [CSS](https://en.wikipedia.org/wiki/Cascading_Style_Sheets) - Used for describing the presentation of a document written in a markup language like HTML
+* [Bootstrap](https://getbootstrap.com/) - An open source toolkit for developing with HTML, CSS, and JavaScript
 
 ## Contributing
 
