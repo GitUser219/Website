@@ -5,10 +5,11 @@ CREATE DATABASE db;
 CREATE TABLE users (
 	user_id INT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
 	username VARCHAR(255) UNIQUE NOT NULL,
-	password VARCHAR(255) NOT NULL
+	password VARCHAR(255) NOT NULL, 
+	administrator BOOLEAN NOT NULL
 ) ENGINE = INNODB;
 	
-INSERT INTO users (user_id, username, password) VALUES (NULL, "Jonathan", "password"), (NULL, "Kyleigh", "password");
+INSERT INTO users (user_id, username, password, administrator) VALUES (NULL, "Jonathan", "password", TRUE), (NULL, "KyleighMcCoy", "password", FALSE);
 
 CREATE TABLE messages (
 	message_id INT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
