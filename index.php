@@ -53,8 +53,10 @@ if (isset($_POST['signup'])) {
 					<div class="col-md-4 light">
 						<form method="post">
 							<label>Log in</label>
-							<input class="form-control input" type="text" name="login_username" placeholder="Username" maxlength="255">
-							<input class="form-control input" type="password" name="login_password" placeholder="Password" maxlength="255">
+							<input class="form-control input" type="text" name="login_username" placeholder="Username" maxlength="255" autocomplete="off" id="login_username">
+							<div id="login_username_response"></div>
+							<input class="form-control input" type="password" name="login_password" placeholder="Password" maxlength="255" autocomplete="off" id="login_password">
+							<div id="login_password_response"></div>
 							<input class="btn btn-primary" type="submit" name="login" value="Log in">
 						</form>
 					</div>
@@ -72,10 +74,14 @@ if (isset($_POST['signup'])) {
 					<div class="col-md-4 light">
 						<form method="post">
 							<label>Sign up</label>
-							<input class="form-control input" type="text" name="signup_username" placeholder="Username" maxlength="255">
-							<input class="form-control input" type="password" name="signup_password_1" placeholder="Password" maxlength="255">
-							<input class="form-control input" type="password" name="signup_password_2" placeholder="Re-enter password" maxlength="255">
+							<input class="form-control input" type="text" name="signup_username" placeholder="Username" maxlength="255" autocomplete="off" id="signup_username">
+							<div id="signup_username_response"></div>
+							<input class="form-control input" type="password" name="signup_password_1" placeholder="Password" maxlength="255" autocomplete="off" id="signup_password_1">
+							<div id="signup_password_1_response"></div>
+							<input class="form-control input" type="password" name="signup_password_2" placeholder="Retype password" maxlength="255" autocomplete="off" id="signup_password_2">
+							<div id="signup_password_2_response"></div>
 							<input class="btn btn-primary" type="submit" name="signup" value="Sign up">
+							<label id="test"></label>
 						</form>
 					</div>
 					<div class="col-md-4"></div>
@@ -84,3 +90,23 @@ if (isset($_POST['signup'])) {
 		</div>
 	</body>
 </html>
+
+<script>
+$().ready(function() {
+	$("#login_username").keyup(function() {
+		$("#login_username_response").html($("#login_username").val());
+    });
+	$("#login_password").keyup(function() {
+		$("#login_password_response").html($("#login_password").val());
+    });
+	$("#signup_username").keyup(function() {
+		$("#signup_username_response").html($("#signup_username").val());
+    });
+	$("#signup_password_1").keyup(function() {
+		$("#signup_password_1_response").html($("#signup_password_1").val());
+    });
+	$("#signup_password_2").keyup(function() {
+		$("#signup_password_2_response").html($("#signup_password_2").val());
+    });
+});
+</script>
