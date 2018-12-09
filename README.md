@@ -47,6 +47,7 @@ TBA
 * [Ajax](https://en.wikipedia.org/wiki/Ajax_(programming)) - A web development technique using web technologies on the client side to create asynchronous web applications
 * [Data validation](https://en.wikipedia.org/wiki/Data_validation) - The process of ensuring data have undergone data cleansing to ensure they are both correct and useful
 * [Responsive design](https://en.wikipedia.org/wiki/Responsive_web_design) - An approach that makes web pages render well on a variety of devices and window or screen sizes
+* [Relational database design](https://en.wikiversity.org/wiki/Designing_a_Relational_Database) - Modeling information and data into a set of tables with rows and columns
 
 ## Versioning
 
