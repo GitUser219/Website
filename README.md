@@ -56,11 +56,12 @@ Give an example
 
 Add additional notes about how to deploy this on a live system
 
-## Built With
+## Tools and Languages
 
 * [XAMPP](https://www.apachefriends.org/index.html) - The most popular PHP development environment
 * [PHP](http://www.php.net/) - A popular general-purpose scripting language that is especially suited to web development
 * [MySQL](https://www.mysql.com/) - An open source relational database management system
+* [SQL](https://en.wikipedia.org/wiki/Domain-specific_language) - A programming language used for managing data held in a relational database management system
 * [Apache HTTP Server](https://httpd.apache.org/) - An open-source HTTP server for modern operating systems including UNIX and Windows
 * [Bootstrap](https://getbootstrap.com/) - An open source toolkit for developing with HTML, CSS, and JavaScript
 * [HTML5](https://en.wikipedia.org/wiki/HTML5) - A markup language used for structuring and presenting content on the World Wide Web
