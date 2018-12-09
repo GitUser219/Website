@@ -32,6 +32,7 @@ TBA
 * [MySQL](https://www.mysql.com/) - An open source relational database management system
 * [Apache HTTP Server](https://httpd.apache.org/) - An open-source HTTP server for modern operating systems including UNIX and Windows
 * [Bootstrap](https://getbootstrap.com/) - An open source toolkit for developing with HTML, CSS, and JavaScript
+* [jQuery](https://jquery.com/) - A fast, small, and feature-rich JavaScript library
 
 ## Languages
 
@@ -40,6 +41,11 @@ TBA
 * [JavaScript](https://www.javascript.com/) - Enables interactive web pages and thus is an essential part of web applications
 * [PHP](http://www.php.net/) - A popular general-purpose scripting language that is especially suited to web development
 * [SQL](https://en.wikipedia.org/wiki/Domain-specific_language) - A programming language used for managing data held in a relational database management system
+
+## Concepts
+
+* [Ajax](https://en.wikipedia.org/wiki/Ajax_(programming)) - A set of web development techniques using many web technologies on the client side to create asynchronous web applications
+* [Data validation](https://en.wikipedia.org/wiki/Data_validation) - The process of ensuring data have undergone data cleansing to ensure they are both correct and useful
 
 ## Versioning
 
