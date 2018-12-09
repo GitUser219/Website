@@ -60,7 +60,10 @@ Add additional notes about how to deploy this on a live system
 
 * [XAMPP](https://www.apachefriends.org/index.html) - The most popular PHP development environment
 * [PHP](http://www.php.net/) - A popular general-purpose scripting language that is especially suited to web development
-* [JavaScript](https://www.javascript.com/) - An object-oriented computer programming language commonly used to create interactive effects within web browsers
+* [JavaScript](https://www.javascript.com/) - Enables interactive web pages and thus is an essential part of web applications
+* [HTML5](https://en.wikipedia.org/wiki/HTML5) - A markup language used for structuring and presenting content on the World Wide Web
+* [MySQL](https://www.mysql.com/) - An open source relational database management system
+* [Apache HTTP Server](https://httpd.apache.org/) - An open-source HTTP server for modern operating systems including UNIX and Windows
 
 ## Contributing
 
