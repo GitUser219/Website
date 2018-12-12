@@ -3,19 +3,18 @@ DROP DATABASE IF EXISTS db;
 CREATE DATABASE db;
 
 CREATE TABLE users (
-	user_id INT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
-	username VARCHAR(255) UNIQUE NOT NULL,
+	username VARCHAR(255) NOT NULL PRIMARY KEY,
 	password VARCHAR(255) NOT NULL, 
 	administrator BOOLEAN NOT NULL
 ) ENGINE = INNODB;
 	
-INSERT INTO users (user_id, username, password, administrator) VALUES (NULL, "Jonathan", "password", TRUE), (NULL, "KyleighMcCoy", "password", FALSE);
+INSERT INTO users (username, password, administrator) VALUES ("Jonathan", "password", TRUE), ("KyleighMcCoy", "password", FALSE);
 
 CREATE TABLE messages (
 	message_id INT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
-	user_id INT UNSIGNED NOT NULL,
+	username VARCHAR(255) NOT NULL,
 	contents VARCHAR(255) NOT NULL,
-	FOREIGN KEY (user_id) REFERENCES users(user_id)
+	FOREIGN KEY (username) REFERENCES users(username)
 ) ENGINE = INNODB;
 
-INSERT INTO messages (message_id, user_id, contents) VALUES (NULL, 1, "Hello"), (NULL, 2, "Hey");
+INSERT INTO messages (message_id, username, contents) VALUES (NULL, "Jonathan", "Hello"), (NULL, "KyleighMcCoy", "Hey");

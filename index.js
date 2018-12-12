@@ -38,8 +38,8 @@ $().ready(function() {
 			type: "POST",
 			url: "login.php",
 			data: dataString,
-			success: function(user_id) {
-				if (user_id != 0) {
+			success: function(result) {
+				if (result == 1) {
 					window.location="dashboard.html";
 				} else {
 					$("#login_response").show();
