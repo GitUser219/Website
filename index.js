@@ -1,5 +1,4 @@
 $().ready(function() {
-
 	var login_username_ready = false;
 	var login_password_ready = false;
 	var signup_username_ready = false;
@@ -7,7 +6,6 @@ $().ready(function() {
 	var signup_password_2_ready = false;
 	
 	$("#login_username").keyup(function() {
-		
 		if ($("#login_username").val().length < 8) {
 			$("#login_button").prop("disabled", true);
 			login_username_ready = false;
@@ -20,7 +18,6 @@ $().ready(function() {
     });
 	
 	$("#login_password").keyup(function() {
-		
 		if ($("#login_password").val().length < 8) {
 			$("#login_button").prop("disabled", true);
 			login_password_ready = false;
@@ -50,9 +47,7 @@ $().ready(function() {
 	});
 	
 	$("#signup_username").keyup(function() {
-		
 		if ($("#signup_username").val() != "") {
-			
 			if ($("#signup_username").val().length < 8) {
 				$("#signup_username_response").show();
 				$("#signup_username_response").html("Your username must be at least 8 characters long");
@@ -65,7 +60,6 @@ $().ready(function() {
 					url: "username_check.php",
 					data: dataString,
 					success: function(response) {
-						
 						if (response == "available") {
 							$("#signup_username_response").hide();
 							signup_username_ready = true;
@@ -91,9 +85,7 @@ $().ready(function() {
     });
 	
 	$("#signup_password_1").keyup(function() {
-		
 		if ($("#signup_password_1").val() != "") {
-			
 			if ($("#signup_password_1").val().length < 8) {
 				$("#signup_password_1_response").show();
 				$("#signup_password_1_response").html("Your password must be at least 8 characters long");
@@ -108,13 +100,11 @@ $().ready(function() {
 					$("#signup_button").prop("disabled", true);
 				}
 			}
-			
 		} else {
 			$("#signup_password_1_response").hide();
 			$("#signup_button").prop("disabled", true);
 			signup_password_1_ready = false;
 		}
-		
 		if ($("#signup_password_2").val() != "") {
 			
 			if ($("#signup_password_2").val() != $("#signup_password_1").val()) {
@@ -131,7 +121,6 @@ $().ready(function() {
 					$("#signup_button").prop("disabled", true);
 				}
 			}
-			
 		} else {
 			$("#signup_password_2_response").hide();
 			$("#signup_button").prop("disabled", true);
@@ -140,9 +129,7 @@ $().ready(function() {
     });
 	
 	$("#signup_password_2").keyup(function() {
-		
 		if ($("#signup_password_2").val() != "") {
-			
 			if ($("#signup_password_2").val() != $("#signup_password_1").val()) {
 				$("#signup_password_2_response").show();
 				$("#signup_password_2_response").html("The two passwords do not match");
@@ -157,7 +144,6 @@ $().ready(function() {
 					$("#signup_button").prop("disabled", true);
 				}
 			}
-			
 		} else {
 			$("#signup_password_2_response").hide();
 			$("#signup_button").prop("disabled", true);

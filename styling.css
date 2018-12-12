@@ -33,6 +33,10 @@ label {
 	margin: 10px 0px 0px 0px;
 }
 
+.btn:focus {
+   box-shadow: none;
+}
+
 p {
 	margin: 10px 0px 0px 0px;
 }
