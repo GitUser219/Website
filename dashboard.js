@@ -1,6 +1,18 @@
 $().ready(function() {
 	$.ajax({
 		type: "GET",
+		url: "get_role.php",
+		success: function(role) {
+			if (role == 1) {
+				$("#see_users_button").show();
+			} else {
+				$("#see_users_button").hide();
+			}
+		}
+	});
+	
+	$.ajax({
+		type: "GET",
 		url: "get_messages.php",
 		success: function(messages) {
 			if (messages.length > 0) {
@@ -69,6 +81,20 @@ $().ready(function() {
 			url: "logout.php",
 			success: function() {
 				window.location="index.html";
+			}
+		});
+	});
+	
+	$("#see_users_button").click(function() {
+		$.ajax({
+			type: "GET",
+			url: "get_users.php",
+			success: function(users) {
+				users = users.substr(1).split("/");
+				$("#users_modal_body").html("");
+				for (i = 0; i < users.length; i++) {
+					$("#users_modal_body").html($("#users_modal_body").html() + users[i] + "<br>");
+				}
 			}
 		});
 	});

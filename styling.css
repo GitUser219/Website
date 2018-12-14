@@ -44,3 +44,17 @@ p {
 .light.message {
 	margin: 10px 0px 0px 0px;
 }
+
+.modal-content {
+	background-color: rgb(42, 47, 66);
+	border-radius: 10px;
+	color: rgb(255, 255, 255);
+}
+
+.modal-header {
+	border-bottom: 1px solid rgb(54, 60, 82);
+}
+
+.modal-footer {
+	border-top: 1px solid rgb(54, 60, 82);
+}
