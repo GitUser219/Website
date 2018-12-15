@@ -1,9 +1,11 @@
 $().ready(function() {
+	$("#user_deletion_response").hide();
+	
 	$.ajax({
 		type: "GET",
 		url: "get_role.php",
 		success: function(administrator) {
-			if (administrator) {
+			if (administrator == 1) {
 				$("#see_users_button").show();
 			} else {
 				$("#see_users_button").hide();
@@ -75,6 +77,53 @@ $().ready(function() {
 			url: "get_users.php",
 			success: function(html) {
 				$("#user_data").html(html);
+			}
+		});
+	});
+	
+	$("#username_text").keyup(function() {
+		if ($("#username_text").val().length < 8) {
+			$("#delete_user_button").prop("disabled", true);
+			$("#user_deletion_response").hide();
+		} else {
+			$("#delete_user_button").prop("disabled", false);
+		}
+    });
+	
+	$("#delete_user_button").click(function() {
+		var dataString = "username=" + $("#username_text").val();
+		$.ajax({
+			type: "POST",
+			url: "username_exists.php",
+			data: dataString,
+			success(response) {
+				if (response == 0) {
+					$("#user_deletion_response").show();
+					$("#user_deletion_response").html("That user does not exist");
+				} else {
+					$.ajax({
+						type: "POST",
+						url: "delete_user.php",
+						data: dataString,
+						success(response) {
+							if (response == 0) {
+								$("#user_deletion_response").show();
+								$("#user_deletion_response").html("You cannot delete your own account");
+							} else {
+								$("#user_deletion_response").hide();
+								$.ajax({
+									type: "GET",
+									url: "get_users.php",
+									success: function(html) {
+										$("#user_data").html(html);
+										$("#username_text").val("");
+										$("#delete_user_button").prop("disabled", true);
+									}
+								});
+							}
+						}
+					});
+				}
 			}
 		});
 	});

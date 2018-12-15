@@ -57,10 +57,10 @@ $().ready(function() {
 				var dataString = "username=" + $("#signup_username").val();
 				$.ajax({
 					type: "POST",
-					url: "username_check.php",
+					url: "username_exists.php",
 					data: dataString,
 					success: function(response) {
-						if (response == "available") {
+						if (response == 0) {
 							$("#signup_username_response").hide();
 							signup_username_ready = true;
 							if (signup_password_1_ready && signup_password_2_ready) {
@@ -70,7 +70,7 @@ $().ready(function() {
 							}
 						} else {
 							$("#signup_username_response").show();
-							$("#signup_username_response").html(response);
+							$("#signup_username_response").html("That username is taken");
 							$("#signup_button").prop("disabled", true);
 							signup_username_ready = false;
 						}
