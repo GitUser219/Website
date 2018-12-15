@@ -2,8 +2,8 @@ $().ready(function() {
 	$.ajax({
 		type: "GET",
 		url: "get_role.php",
-		success: function(role) {
-			if (role == 1) {
+		success: function(administrator) {
+			if (administrator) {
 				$("#see_users_button").show();
 			} else {
 				$("#see_users_button").hide();
@@ -14,12 +14,9 @@ $().ready(function() {
 	$.ajax({
 		type: "GET",
 		url: "get_messages.php",
-		success: function(messages) {
-			if (messages.length > 0) {
-				messages = messages.substr(1).split("/");
-				for (i = 0; i < messages.length; i++) {
-					$("#messages").html($("#messages").html() + "<div class='row'><div class='col-md-2'></div><div class='col-md-8 light message'><p>" + messages[i] + "</p><div class='col-md-2'></div></div></div>");
-				}
+		success: function(html) {
+			if (html.length > 0) {
+				$("#messages").html(html);
 			} else {
 				$("#delete_button").prop("disabled", true);
 			}
@@ -36,29 +33,16 @@ $().ready(function() {
 	
 	$("#send_button").click(function() {
 		if ($("#contents").val() != "") {
+			var dataString = "contents=" + $("#contents").val();
 			$.ajax({
-				type: "GET",
-				url: "get_messages.php",
-				success: function(messages) {
-					if (messages.length > 0) {
-						messages = messages.substr(1).split("/");
-						$("#messages").html("");
-						for (i = 0; i < messages.length; i++) {
-							$("#messages").html($("#messages").html() + "<div class='row'><div class='col-md-2'></div><div class='col-md-8 light message'><p>" + messages[i] + "</p><div class='col-md-2'></div></div></div>");
-						}
-					}
-					var dataString ="contents=" + $("#contents").val();
-					$.ajax({
-						type: "POST",
-						url: "send_message.php",
-						data: dataString,
-						success: function(username) {
-							$("#messages").html($("#messages").html() + "<div class='row'><div class='col-md-2'></div><div class='col-md-8 light message'><p>" + username + ": " + $("#contents").val() + "</p><div class='col-md-2'></div></div></div>");
-							$("#contents").val("");
-							$("#send_button").prop("disabled", true);
-							$("#delete_button").prop("disabled", false);
-						}
-					});
+				type: "POST",
+				url: "send_message.php",
+				data: dataString,
+				success: function(username) {
+					$("#messages").html($("#messages").html() + "<div class='row'><div class='col-md-2'></div><div class='col-md-8 light message'><p>" + username + ": " + $("#contents").val() + "</p><div class='col-md-2'></div></div></div>");
+					$("#contents").val("");
+					$("#send_button").prop("disabled", true);
+					$("#delete_button").prop("disabled", false);
 				}
 			});
 		}
@@ -89,12 +73,8 @@ $().ready(function() {
 		$.ajax({
 			type: "GET",
 			url: "get_users.php",
-			success: function(users) {
-				users = users.substr(1).split("/");
-				$("#users_modal_body").html("");
-				for (i = 0; i < users.length; i++) {
-					$("#users_modal_body").html($("#users_modal_body").html() + users[i] + "<br>");
-				}
+			success: function(html) {
+				$("#user_data").html(html);
 			}
 		});
 	});

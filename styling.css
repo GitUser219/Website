@@ -52,9 +52,19 @@ p {
 }
 
 .modal-header {
-	border-bottom: 1px solid rgb(54, 60, 82);
+	border-bottom: 2px solid rgb(54, 60, 82);
+}
+
+.modal-body {
+	padding-bottom: 0px;
 }
 
 .modal-footer {
-	border-top: 1px solid rgb(54, 60, 82);
+	border-top: 2px solid rgb(54, 60, 82);
+	padding-top: 5px;
+}
+
+table.table-bordered > thead > tr > th,
+table.table-bordered > tbody > tr > td {
+	border: 2px solid rgb(54, 60, 82);
 }
