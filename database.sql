@@ -4,11 +4,12 @@ CREATE DATABASE db;
 
 CREATE TABLE users (
 	username VARCHAR(255) NOT NULL PRIMARY KEY,
-	password VARCHAR(255) NOT NULL, 
+	password VARCHAR(255) NOT NULL,
+	messages_sent UNSIGNED INTEGER NOT NULL,
 	administrator BOOLEAN NOT NULL
 ) ENGINE = INNODB;
 	
-INSERT INTO users (username, password, administrator) VALUES ("Jonathan", "password", TRUE), ("KyleighMcCoy", "password", FALSE);
+INSERT INTO users (username, password, messages_sent, administrator) VALUES ("Jonathan", "password", 0, TRUE), ("KyleighMcCoy", "password", 0, FALSE);
 
 CREATE TABLE messages (
 	message_id INT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
