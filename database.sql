@@ -18,3 +18,7 @@ CREATE TABLE messages (
 ) ENGINE = INNODB;
 
 INSERT INTO messages (message_id, username, contents) VALUES (NULL, "Jonathan", "Hello"), (NULL, "KyleighMcCoy", "Hey");
+
+CREATE TABLE registration (
+	registration_key INT UNSIGNED NOT NULL PRIMARY KEY
+) ENGINE = INNODB;

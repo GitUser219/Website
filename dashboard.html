@@ -19,28 +19,11 @@
 					<div class="col-md-2"></div>
 					<div class="col-md-8 light">
 						<input class="form-control input" type="text" placeholder="Send a message" maxlength="255" autocomplete="off" id="contents">
-						<input class="btn btn-primary" type="button" value="Send" id="send_button" disabled>
-						<input class="btn btn-primary" type="button" value="Delete all messages" id="delete_button">
+						<input class="btn btn-primary" type="button" value="Send" id="send_button">
+						<input class="btn btn-primary" type="button" value="Delete all messages" id="delete_all_messages_button">
 						<input class="btn btn-primary" type="button" value="Log out" id="logout_button">
-						<input class="btn btn-primary" type="button" value="See users" data-toggle="modal" data-target="#users_modal" id="see_users_button">
 					</div>
 					<div class="col-md-2"></div>
-				</div>
-			</div>
-		</div>
-		<div class="modal fade" id="users_modal">
-			<div class="modal-dialog">
-				<div class="modal-content">
-					<div class="modal-header">
-						<h5 class="modal-title">Users</h5>
-					</div>
-					<div class="modal-body" id="user_data"></div>
-					<div class="modal-footer">
-						<input class="form-control deletion" type="text" placeholder="Username" maxlength="255" autocomplete="off" id="username_text">
-						<input class="btn btn-primary" type="button" value="Delete user" id="delete_user_button" disabled>
-						<input class="btn btn-primary" type="button" value="Close" data-dismiss="modal">
-					</div>
-					<div class="modal-footer modal-dialog modal-dialog-centered" id="user_deletion_response"></div>
 				</div>
 			</div>
 		</div>
