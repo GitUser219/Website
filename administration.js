@@ -1,6 +1,6 @@
 $().ready(function() {
 	
-	$("#see_users_button").click(function() {
+	$("#manage_users_button").click(function() {
 		$.ajax({
 			type: "GET",
 			url: "get_users.php",
@@ -44,7 +44,7 @@ $().ready(function() {
 		});
 	});
 	
-	$("#close_button").click(function() {
+	$("#manage_users_close_button").click(function() {
 		$("#user_deletion_response").html("");
 		$("#username_text").val("");
 	});
@@ -57,7 +57,7 @@ $().ready(function() {
 				$("#registration_key").html(response);
 				$("#generate_key_button").prop("disabled", true);
 				$("#delete_key_button").prop("disabled", false);
-				$("#close_button").prop("disabled", true);
+				$("#registration_close_button").prop("disabled", true);
 			}
 		});
 	});
@@ -70,7 +70,7 @@ $().ready(function() {
 				$("#registration_key").html("Registration key");
 				$("#generate_key_button").prop("disabled", false);
 				$("#delete_key_button").prop("disabled", true);
-				$("#close_button").prop("disabled", false);
+				$("#registration_close_button").prop("disabled", false);
 			}
 		});
 	});

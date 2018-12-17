@@ -9,18 +9,7 @@ $().ready(function() {
 				data: "username=" + $("#login_username").val() + "&password=" + $("#login_password").val(),
 				success: function(response) {
 					if (response == 1) {
-						$.ajax({
-							type: "POST",
-							url: "get_role.php",
-							data: "username=" + $("#login_username").val(),
-							success: function(response) {
-								if (response == 1) {
-									window.location="administration.html";
-								} else {
-									window.location="dashboard.html";
-								}
-							}
-						});
+						window.location="dashboard.html";
 					} else {
 						$("#login_response").html("Invalid username or password");
 					}
