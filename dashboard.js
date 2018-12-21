@@ -1,5 +1,9 @@
 $().ready(function() {
 	
+	$("#contents").on("keyup paste", function(){
+		alert("The text has been changed.");
+	});
+	
 	$.ajax({
 		type: "GET",
 		url: "get_role.php",
