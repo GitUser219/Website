@@ -1,7 +1,21 @@
 $().ready(function() {
 	
-	$("#contents").on("keyup paste", function(){
-		alert("The text has been changed.");
+	$("#contents").on("paste", function(e) {
+		if (e.originalEvent.clipboardData.getData('text') != "") {
+			$("#send_button").prop("disabled", false);
+		}
+	});
+	
+	$("#contents").on("cut", function(e) {
+		alert("Cut");
+	});
+	
+	$("#contents").keyup(function() {
+		if ($("#contents").val() != "") {
+			$("#send_button").prop("disabled", false);
+		} else {
+			$("#send_button").prop("disabled", true);
+		}
 	});
 	
 	$.ajax({
@@ -37,6 +51,7 @@ $().ready(function() {
 				success: function(response) {
 					$("#messages").html($("#messages").html() + "<div class='row'><div class='col-md-2'></div><div class='col-md-8 light message'><p>" + response + ": " + $("#contents").val() + "</p><div class='col-md-2'></div></div></div>");
 					$("#contents").val("");
+					$("#send_button").prop("disabled", true);
 					$("#delete_all_messages_button").prop("disabled", false);
 				}
 			});
