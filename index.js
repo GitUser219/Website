@@ -1,5 +1,75 @@
 $().ready(function() {
 	
+	login_username_ready = false;
+	
+	$("#login_username").on("paste", function(e) {
+		
+		if (e.originalEvent.clipboardData.getData('text') != "") {
+			if (login_password_ready) {
+				$("#login_button").prop("disabled", false);
+			}
+			login_username_ready = true;
+		}
+	});
+	
+	$("#login_username").on("cut", function() {
+		
+		setTimeout(function() {
+			if ($("#login_username").val() == "") {
+				$("#login_button").prop("disabled", true);
+				login_username_ready = false;
+			}
+		}, 0);
+	});
+	
+	$("#login_username").keyup(function() {
+		
+		if ($("#login_username").val() != "") {
+			if (login_password_ready) {
+				$("#login_button").prop("disabled", false);
+			}
+			login_username_ready = true;
+		} else {
+			$("#login_button").prop("disabled", true);
+			login_username_ready = false;
+		}
+	});
+	
+	login_password_ready = false;
+
+	$("#login_password").on("paste", function(e) {
+		
+		if (e.originalEvent.clipboardData.getData('text') != "") {
+			if (login_username_ready) {
+				$("#login_button").prop("disabled", false);
+			}
+			login_password_ready = true;
+		}
+	});
+	
+	$("#login_password").on("cut", function() {
+		
+		setTimeout(function() {
+			if ($("#login_password").val() == "") { 
+				$("#login_button").prop("disabled", true);
+				login_password_ready = false;
+			}
+		}, 0);
+	});
+	
+	$("#login_password").keyup(function() {
+		
+		if ($("#login_password").val() != "") {
+			if (login_username_ready) {
+				$("#login_button").prop("disabled", false);
+			}
+			login_password_ready = true;
+		} else {
+			$("#login_button").prop("disabled", true);
+			login_password_ready = false;
+		}
+	});
+	
 	$("#login_button").click(function() {
 		
 		if ($("#login_username").val().length > 7 && $("#login_username").val().length < 256 && $("#login_password").val().length > 7 && $("#login_password").val().length < 256) {
@@ -17,6 +87,146 @@ $().ready(function() {
 			});
 		} else {
 			$("#login_response").html("Invalid username or password");
+		}
+	});
+	
+	signup_username_ready = false;
+	
+	$("#signup_username").on("paste", function(e) {
+		
+		if (e.originalEvent.clipboardData.getData('text') != "") {
+			if (signup_password_1_ready && signup_password_2_ready && registration_key_ready) {
+				$("#signup_button").prop("disabled", false);
+			}
+			signup_username_ready = true;
+		}
+	});
+	
+	$("#signup_username").on("cut", function() {
+		
+		setTimeout(function() {
+			if ($("#signup_username").val() == "") {
+				$("#signup_button").prop("disabled", true);
+				signup_username_ready = false;
+			}
+		}, 0);
+	});
+	
+	$("#signup_username").keyup(function() {
+		
+		if ($("#signup_username").val() != "") {
+			if (signup_password_1_ready && signup_password_2_ready && registration_key_ready) {
+				$("#signup_button").prop("disabled", false);
+			}
+			signup_username_ready = true;
+		} else {
+			$("#signup_button").prop("disabled", true);
+			signup_username_ready = false;
+		}
+	});
+	
+	signup_password_1_ready = false;
+	
+	$("#signup_password_1").on("paste", function(e) {
+		
+		if (e.originalEvent.clipboardData.getData('text') != "") {
+			if (signup_username_ready && signup_password_2_ready && registration_key_ready) {
+				$("#signup_button").prop("disabled", false);
+			}
+			signup_password_1_ready = true;
+		}
+	});
+	
+	$("#signup_password_1").on("cut", function() {
+		
+		setTimeout(function() {
+			if ($("#signup_password_1").val() == "") {
+				$("#signup_button").prop("disabled", true);
+				signup_password_1_ready = false;
+			}
+		}, 0);
+	});
+	
+	$("#signup_password_1").keyup(function() {
+		
+		if ($("#signup_password_1").val() != "") {
+			if (signup_username_ready && signup_password_2_ready && registration_key_ready) {
+				$("#signup_button").prop("disabled", false);
+			}
+			signup_password_1_ready = true;
+		} else {
+			$("#signup_button").prop("disabled", true);
+			signup_password_1_ready = false;
+		}
+	});
+	
+	signup_password_2_ready = false;
+	
+	$("#signup_password_2").on("paste", function(e) {
+		
+		if (e.originalEvent.clipboardData.getData('text') != "") {
+			if (signup_username_ready && signup_password_1_ready && registration_key_ready) {
+				$("#signup_button").prop("disabled", false);
+			}
+			signup_password_2_ready = true;
+		}
+	});
+	
+	$("#signup_password_2").on("cut", function() {
+		
+		setTimeout(function() {
+			if ($("#signup_password_2").val() == "") {
+				$("#signup_button").prop("disabled", true);
+				signup_password_2_ready = false;
+			}
+		}, 0);
+	});
+	
+	$("#signup_password_2").keyup(function() {
+		
+		if ($("#signup_password_2").val() != "") {
+			if (signup_username_ready && signup_password_1_ready && registration_key_ready) {
+				$("#signup_button").prop("disabled", false);
+			}
+			signup_password_2_ready = true;
+		} else {
+			$("#signup_button").prop("disabled", true);
+			signup_password_2_ready = false;
+		}
+	});
+	
+	registration_key_ready = false;
+	
+	$("#registration_key").on("paste", function(e) {
+		
+		if (e.originalEvent.clipboardData.getData('text') != "") {
+			if (signup_username_ready && signup_password_1_ready && signup_password_2_ready) {
+				$("#signup_button").prop("disabled", false);
+			}
+			registration_key_ready = true;
+		}
+	});
+	
+	$("#registration_key").on("cut", function() {
+		
+		setTimeout(function() {
+			if ($("#registration_key").val() == "") {
+				$("#signup_button").prop("disabled", true);
+				registration_key_ready = false;
+			}
+		}, 0);
+	});
+	
+	$("#registration_key").keyup(function() {
+		
+		if ($("#registration_key").val() != "") {
+			if (signup_username_ready && signup_password_1_ready && signup_password_2_ready) {
+				$("#signup_button").prop("disabled", false);
+			}
+			registration_key_ready = true;
+		} else {
+			$("#signup_button").prop("disabled", true);
+			registration_key_ready = false;
 		}
 	});
 	
