@@ -6,8 +6,12 @@ $().ready(function() {
 		}
 	});
 	
-	$("#contents").on("cut", function(e) {
-		alert("Cut");
+	$("#contents").on("cut", function() {
+		setTimeout(function() {
+			if ($("#contents").val() == "") { 
+				$("#send_button").prop("disabled", true);
+			}
+		}, 0);
 	});
 	
 	$("#contents").keyup(function() {
