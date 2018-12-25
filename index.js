@@ -1,27 +1,8 @@
 $().ready(function() {
 	
-	alert("test");
-	
 	login_username_ready = false;
 	
-	$("#login_username").on("paste", function(e) {
-		
-		if (e.originalEvent.clipboardData.getData('text') != "") {
-			setTimeout(function() {
-				if ($("#login_username").val().length < 8) {
-					$("#login_button").prop("disabled", true);
-					login_username_ready = false;
-				} else if (login_password_ready) {
-					$("#login_button").prop("disabled", false);
-					login_username_ready = true;
-				} else {
-					login_username_ready = true;
-				}
-			}, 0);
-		}
-	});
-	
-	$("#login_username").on("cut", function() {
+	$("#login_username").on("cut paste", function() {
 		
 		setTimeout(function() {
 			if ($("#login_username").val().length < 8) {
@@ -51,24 +32,7 @@ $().ready(function() {
 	
 	login_password_ready = false;
 
-	$("#login_password").on("paste", function(e) {
-		
-		if (e.originalEvent.clipboardData.getData('text') != "") {
-			setTimeout(function() {
-				if ($("#login_password").val().length < 8) {
-					$("#login_button").prop("disabled", true);
-					login_password_ready = false;
-				} else if (login_username_ready) {
-					$("#login_button").prop("disabled", false);
-					login_password_ready = true;
-				} else {
-					login_password_ready = true;
-				}
-			}, 0);
-		}
-	});
-	
-	$("#login_password").on("cut", function() {
+	$("#login_password").on("cut paste", function() {
 		
 		setTimeout(function() {
 			if ($("#login_password").val().length < 8) {
@@ -118,141 +82,121 @@ $().ready(function() {
 	
 	signup_username_ready = false;
 	
-	$("#signup_username").on("paste", function(e) {
-		
-		if (e.originalEvent.clipboardData.getData('text') != "") {
-			if (signup_password_1_ready && signup_password_2_ready && registration_key_ready) {
-				$("#signup_button").prop("disabled", false);
-			}
-			signup_username_ready = true;
-		}
-	});
-	
-	$("#signup_username").on("cut", function() {
+	$("#signup_username").on("cut paste", function() {
 		
 		setTimeout(function() {
-			if ($("#signup_username").val() == "") {
+			if ($("#signup_username").val().length < 8) {
 				$("#signup_button").prop("disabled", true);
 				signup_username_ready = false;
+			} else if (signup_password_1_ready && signup_password_2_ready && registration_key_ready) {
+				$("#signup_button").prop("disabled", false);
+				signup_username_ready = true;
+			} else {
+				signup_username_ready = true;
 			}
 		}, 0);
 	});
 	
 	$("#signup_username").keyup(function() {
 		
-		if ($("#signup_username").val() != "") {
-			if (signup_password_1_ready && signup_password_2_ready && registration_key_ready) {
-				$("#signup_button").prop("disabled", false);
-			}
-			signup_username_ready = true;
-		} else {
+		if ($("#signup_username").val().length < 8) {
 			$("#signup_button").prop("disabled", true);
-			signup_username_ready = false;
+			singup_username_ready = false;
+		} else if (signup_password_1_ready && signup_password_2_ready && registration_key_ready) {
+			$("#signup_button").prop("disabled", false);
+			signup_username_ready = true;	
+		} else {
+			signup_username_ready = true;
 		}
 	});
 	
 	signup_password_1_ready = false;
 	
-	$("#signup_password_1").on("paste", function(e) {
-		
-		if (e.originalEvent.clipboardData.getData('text') != "") {
-			if (signup_username_ready && signup_password_2_ready && registration_key_ready) {
-				$("#signup_button").prop("disabled", false);
-			}
-			signup_password_1_ready = true;
-		}
-	});
-	
-	$("#signup_password_1").on("cut", function() {
+	$("#signup_password_1").on("cut paste", function(e) {
 		
 		setTimeout(function() {
-			if ($("#signup_password_1").val() == "") {
+			if ($("#signup_password_1").val().length < 8) {
 				$("#signup_button").prop("disabled", true);
 				signup_password_1_ready = false;
+			} else if (signup_username_ready && signup_password_2_ready && registration_key_ready) {
+				$("#signup_button").prop("disabled", false);
+				signup_password_1_ready = true;
+			} else {
+				signup_password_1_ready = true;
 			}
 		}, 0);
 	});
 	
 	$("#signup_password_1").keyup(function() {
 		
-		if ($("#signup_password_1").val() != "") {
-			if (signup_username_ready && signup_password_2_ready && registration_key_ready) {
-				$("#signup_button").prop("disabled", false);
-			}
-			signup_password_1_ready = true;
-		} else {
+		if ($("#signup_password_1").val().length < 8) {
 			$("#signup_button").prop("disabled", true);
-			signup_password_1_ready = false;
+			singup_password_1_ready = false;
+		} else if (signup_username_ready && signup_password_2_ready && registration_key_ready) {
+			$("#signup_button").prop("disabled", false);
+			signup_password_1_ready = true;	
+		} else {
+			signup_password_1_ready = true;
 		}
 	});
 	
 	signup_password_2_ready = false;
 	
-	$("#signup_password_2").on("paste", function(e) {
-		
-		if (e.originalEvent.clipboardData.getData('text') != "") {
-			if (signup_username_ready && signup_password_1_ready && registration_key_ready) {
-				$("#signup_button").prop("disabled", false);
-			}
-			signup_password_2_ready = true;
-		}
-	});
-	
-	$("#signup_password_2").on("cut", function() {
+	$("#signup_password_2").on("cut paste", function(e) {
 		
 		setTimeout(function() {
-			if ($("#signup_password_2").val() == "") {
+			if ($("#signup_password_2").val().length < 8) {
 				$("#signup_button").prop("disabled", true);
 				signup_password_2_ready = false;
+			} else if (signup_username_ready && signup_password_1_ready && registration_key_ready) {
+				$("#signup_button").prop("disabled", false);
+				signup_password_2_ready = true;
+			} else {
+				signup_password_2_ready = true;
 			}
 		}, 0);
 	});
 	
 	$("#signup_password_2").keyup(function() {
 		
-		if ($("#signup_password_2").val() != "") {
-			if (signup_username_ready && signup_password_1_ready && registration_key_ready) {
-				$("#signup_button").prop("disabled", false);
-			}
-			signup_password_2_ready = true;
-		} else {
+		if ($("#signup_password_2").val().length < 8) {
 			$("#signup_button").prop("disabled", true);
-			signup_password_2_ready = false;
+			singup_password_2_ready = false;
+		} else if (signup_username_ready && signup_password_1_ready && registration_key_ready) {
+			$("#signup_button").prop("disabled", false);
+			signup_password_2_ready = true;	
+		} else {
+			signup_password_2_ready = true;
 		}
 	});
 	
 	registration_key_ready = false;
 	
-	$("#registration_key").on("paste", function(e) {
-		
-		if (e.originalEvent.clipboardData.getData('text') != "") {
-			if (signup_username_ready && signup_password_1_ready && signup_password_2_ready) {
-				$("#signup_button").prop("disabled", false);
-			}
-			registration_key_ready = true;
-		}
-	});
-	
-	$("#registration_key").on("cut", function() {
+	$("#registration_key").on("cut paste", function(e) {
 		
 		setTimeout(function() {
-			if ($("#registration_key").val() == "") {
+			if ($("#registration_key").val().length != 6) {
 				$("#signup_button").prop("disabled", true);
 				registration_key_ready = false;
+			} else if (signup_username_ready && signup_password_1_ready && signup_password_2_ready) {
+				$("#signup_button").prop("disabled", false);
+				registration_key_ready = true;
+			} else {
+				registration_key_ready = true;
 			}
 		}, 0);
 	});
 	
 	$("#registration_key").keyup(function() {
 		
-		if ($("#registration_key").val() != "") {
-			if (signup_username_ready && signup_password_1_ready && signup_password_2_ready) {
-				$("#signup_button").prop("disabled", false);
-			}
-			registration_key_ready = true;
-		} else {
+		if ($("#registration_key").val().length != 6) {
 			$("#signup_button").prop("disabled", true);
 			registration_key_ready = false;
+		} else if (signup_username_ready && signup_password_1_ready && signup_password_2_ready) {
+			$("#signup_button").prop("disabled", false);
+			registration_key_ready = true;	
+		} else {
+			registration_key_ready = true;
 		}
 	});
 	
