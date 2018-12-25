@@ -1,37 +1,51 @@
 $().ready(function() {
 	
+	alert("test");
+	
 	login_username_ready = false;
 	
 	$("#login_username").on("paste", function(e) {
 		
 		if (e.originalEvent.clipboardData.getData('text') != "") {
-			if (login_password_ready) {
-				$("#login_button").prop("disabled", false);
-			}
-			login_username_ready = true;
+			setTimeout(function() {
+				if ($("#login_username").val().length < 8) {
+					$("#login_button").prop("disabled", true);
+					login_username_ready = false;
+				} else if (login_password_ready) {
+					$("#login_button").prop("disabled", false);
+					login_username_ready = true;
+				} else {
+					login_username_ready = true;
+				}
+			}, 0);
 		}
 	});
 	
 	$("#login_username").on("cut", function() {
 		
 		setTimeout(function() {
-			if ($("#login_username").val() == "") {
+			if ($("#login_username").val().length < 8) {
 				$("#login_button").prop("disabled", true);
 				login_username_ready = false;
+			} else if (login_password_ready) {
+				$("#login_button").prop("disabled", false);
+				login_username_ready = true;
+			} else {
+				login_username_ready = true;
 			}
 		}, 0);
 	});
 	
 	$("#login_username").keyup(function() {
 		
-		if ($("#login_username").val() != "") {
-			if (login_password_ready) {
-				$("#login_button").prop("disabled", false);
-			}
-			login_username_ready = true;
-		} else {
+		if ($("#login_username").val().length < 8) {
 			$("#login_button").prop("disabled", true);
 			login_username_ready = false;
+		} else if (login_password_ready) {
+			$("#login_button").prop("disabled", false);
+			login_username_ready = true;	
+		} else {
+			login_username_ready = true;
 		}
 	});
 	
@@ -40,33 +54,45 @@ $().ready(function() {
 	$("#login_password").on("paste", function(e) {
 		
 		if (e.originalEvent.clipboardData.getData('text') != "") {
-			if (login_username_ready) {
-				$("#login_button").prop("disabled", false);
-			}
-			login_password_ready = true;
+			setTimeout(function() {
+				if ($("#login_password").val().length < 8) {
+					$("#login_button").prop("disabled", true);
+					login_password_ready = false;
+				} else if (login_username_ready) {
+					$("#login_button").prop("disabled", false);
+					login_password_ready = true;
+				} else {
+					login_password_ready = true;
+				}
+			}, 0);
 		}
 	});
 	
 	$("#login_password").on("cut", function() {
 		
 		setTimeout(function() {
-			if ($("#login_password").val() == "") { 
+			if ($("#login_password").val().length < 8) {
 				$("#login_button").prop("disabled", true);
 				login_password_ready = false;
+			} else if (login_username_ready) {
+				$("#login_button").prop("disabled", false);
+				login_password_ready = true;
+			} else {
+				login_password_ready = true;
 			}
 		}, 0);
 	});
 	
 	$("#login_password").keyup(function() {
 		
-		if ($("#login_password").val() != "") {
-			if (login_username_ready) {
-				$("#login_button").prop("disabled", false);
-			}
-			login_password_ready = true;
-		} else {
+		if ($("#login_password").val().length < 8) {
 			$("#login_button").prop("disabled", true);
 			login_password_ready = false;
+		} else if (login_username_ready) {
+			$("#login_button").prop("disabled", false);
+			login_password_ready = true;	
+		} else {
+			login_password_ready = true;
 		}
 	});
 	
