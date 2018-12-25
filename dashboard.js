@@ -24,7 +24,7 @@ $().ready(function() {
 		}
 	});
 	
-	$("#contents").on("cut paste", function(e) {
+	$("#contents").on("cut paste", function() {
 		setTimeout(function() {
 			if ($("#contents").val() == "") { 
 				$("#send_button").prop("disabled", true);
