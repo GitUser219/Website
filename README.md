@@ -55,4 +55,4 @@ TBA
 
 ### Authors
 
-* **Jonathan Nowak** - [GitUser219](https://github.com/GitUser219) - **Last Revised X/X/18**
+* **Jonathan Nowak** - [GitUser219](https://github.com/GitUser219) - **Last Revised 12/X/18**
